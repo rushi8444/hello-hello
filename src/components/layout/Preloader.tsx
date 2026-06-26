@@ -181,20 +181,20 @@ export default function Preloader({ onComplete }: PreloaderProps) {
               >
                 ®
               </motion.span>
+              {/* Counter */}
+              <motion.div
+                className="absolute -top-6 -right-4 md:-top-8 md:-right-10"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: isExiting ? 0 : 1 }}
+                transition={{ duration: 0.4 }}
+              >
+                <span className="text-[#f0ece6] mix-blend-difference text-[24px] md:text-[32px] font-mono tabular-nums">
+                  {formatNumber(progress)}
+                </span>
+              </motion.div>
             </div>
           </div>
 
-          {/* Counter */}
-          <motion.div
-            className="absolute top-8 right-8 md:top-12 md:right-16"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: isExiting ? 0 : 1 }}
-            transition={{ duration: 0.4 }}
-          >
-            <span className="text-[#f0ece6] text-[28px] md:text-[36px] font-mono tabular-nums">
-              {formatNumber(progress)}
-            </span>
-          </motion.div>
 
           {/* Vignette */}
           <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)]" />
