@@ -99,7 +99,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
             <div className="relative flex items-center">
               {/* "O" */}
               <motion.span
-                className="relative z-[5] text-[#f0ece6] text-[120px] md:text-[180px] font-bold leading-none tracking-tighter"
+                className="relative z-[5] text-[#f0ece6] mix-blend-difference text-[120px] md:text-[180px] font-bold leading-none tracking-tighter"
                 initial={{ opacity: 0, x: -20 }}
                 animate={{ opacity: isExiting ? 0 : 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
@@ -136,7 +136,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
                       }}
                     >
                       <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
-                      <div className="absolute inset-2 md:inset-3 overflow-hidden">
+                      <div className="absolute inset-0 overflow-hidden">
                         <img
                           src={img}
                           alt=""
@@ -154,7 +154,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
               {/* "UT" */}
               <motion.span
-                className="relative z-[5] text-[#f0ece6] text-[120px] md:text-[180px] font-bold leading-none tracking-tighter"
+                className="relative z-[5] text-[#f0ece6] mix-blend-difference text-[120px] md:text-[180px] font-bold leading-none tracking-tighter"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: isExiting ? 0 : 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
@@ -164,7 +164,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
               {/* "FIT" */}
               <motion.span
-                className="relative z-[5] text-[#f0ece6] text-[120px] md:text-[180px] font-bold leading-none tracking-tighter ml-2 md:ml-4"
+                className="relative z-[5] text-[#f0ece6] mix-blend-difference text-[120px] md:text-[180px] font-bold leading-none tracking-tighter ml-2 md:ml-4"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: isExiting ? 0 : 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
@@ -174,7 +174,7 @@ export default function Preloader({ onComplete }: PreloaderProps) {
 
               {/* ® */}
               <motion.span
-                className="relative z-[5] text-[#f0ece6] text-[24px] md:text-[32px] font-normal self-start mt-8 md:mt-12 ml-1"
+                className="relative z-[5] text-[#f0ece6] mix-blend-difference text-[24px] md:text-[32px] font-normal self-start mt-8 md:mt-12 ml-1"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: isExiting ? 0 : 0.8 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
