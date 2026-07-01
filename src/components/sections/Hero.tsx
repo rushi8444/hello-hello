@@ -5,16 +5,6 @@ import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import Image from 'next/image';
 
-interface HeroProps {
-  theme?: 'cream' | 'light' | 'dark';
-}
-
-const THEME_COLORS = {
-  cream: { bg: '#e8e4de', text: '#e30613', line: '#e30613' },
-  light: { bg: '#ffffff', text: '#000000', line: '#000000' },
-  dark:  { bg: '#000000', text: '#ffffff', line: '#ffffff' },
-};
-
 const FEATURED_PRODUCTS = [
   {
     src: '/products/preview-1.jpg',
@@ -105,9 +95,8 @@ const SECONDARY_PRODUCT_ROWS = [
   ],
 ] as const;
 
-export default function Hero({ theme = 'cream' }: HeroProps) {
+export default function Hero() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const colors = THEME_COLORS[theme];
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
@@ -122,7 +111,6 @@ export default function Hero({ theme = 'cream' }: HeroProps) {
     <section
       ref={containerRef}
       className="relative min-h-dvh w-full flex flex-col justify-between overflow-hidden transition-colors duration-500"
-      style={{ backgroundColor: colors.bg }}
     >
       {/* Main Logo - Massive OUTFIT text */}
       <motion.div
@@ -132,15 +120,11 @@ export default function Hero({ theme = 'cream' }: HeroProps) {
         <div className="relative w-full max-w-350">
           <h1
             className="text-[35vw] md:text-[26vw] lg:text-[24vw] font-black leading-[0.85] tracking-[-0.02em] text-center select-none"
-            style={{
-              color: colors.text,
-              fontFamily: 'var(--font-inter), Helvetica Neue, Arial, sans-serif',
-            }}
+            style={{ fontFamily: 'var(--font-inter), Helvetica Neue, Arial, sans-serif' }}
           >
             OUTFIT
             <span
               className="inline-block text-[3vw] md:text-[2vw] align-super ml-1 md:ml-2 font-normal"
-              style={{ color: colors.text }}
             >
               ®
             </span>
@@ -149,7 +133,6 @@ export default function Hero({ theme = 'cream' }: HeroProps) {
           {/* Horizontal line under logo */}
           <motion.div
             className="w-full h-0.5 md:h-0.75 mt-4 md:mt-6 origin-left"
-            style={{ backgroundColor: colors.line }}
             initial={{ scaleX: 0 }}
             animate={{ scaleX: 1 }}
             transition={{ duration: 1.2, delay: 0.3, ease: [0.76, 0, 0.24, 1] }}

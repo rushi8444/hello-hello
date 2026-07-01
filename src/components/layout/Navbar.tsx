@@ -3,6 +3,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useCart } from '../../hooks/useCart';
 
@@ -19,6 +20,7 @@ const THEMES = [
 
 export default function Navbar({ theme = 'cream', onThemeToggle }: NavbarProps) {
   const { itemCount } = useCart();
+  const pathname = usePathname();
   const [currentThemeIndex, setCurrentThemeIndex] = useState(() => {
     const initialIndex = THEMES.findIndex(t => t.key === theme);
     return initialIndex >= 0 ? initialIndex : 0;
@@ -26,6 +28,8 @@ export default function Navbar({ theme = 'cream', onThemeToggle }: NavbarProps) 
   const [isScrolled, setIsScrolled] = useState(false);
 
   const currentTheme = THEMES[currentThemeIndex];
+  const isBagActive = pathname.startsWith('/bag');
+  const isShopActive = pathname === '/' || pathname.startsWith('/shop');
 
   // Cycle through themes: cream → light → dark → cream
   const handleThemeToggle = () => {
@@ -77,13 +81,16 @@ export default function Navbar({ theme = 'cream', onThemeToggle }: NavbarProps) 
           {/* Shop Link */}
           <Link
             href="/"
+            aria-current={isShopActive ? 'page' : undefined}
             className="relative text-base md:text-base font-medium tracking-wide group"
             style={{ color: 'var(--nav-text)' }}
           >
             <span className="relative">
               Shop
               <span
-                className="absolute left-0 bottom-[-2px] h-[1.5px] w-full origin-left scale-x-100 transition-transform duration-300 group-hover:scale-x-0"
+                className={`absolute left-0 -bottom-0.5 h-[1.5px] w-full origin-left transition-transform duration-300 ${
+                  isShopActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}
                 style={{ backgroundColor: 'var(--nav-text)' }}
               />
             </span>
@@ -92,11 +99,18 @@ export default function Navbar({ theme = 'cream', onThemeToggle }: NavbarProps) 
           {/* Bag Link */}
           <Link
             href="/bag"
-            className="relative text-base md:text-base font-medium tracking-wide"
+            aria-current={isBagActive ? 'page' : undefined}
+            className="relative text-base md:text-base font-medium tracking-wide group"
             style={{ color: 'var(--nav-text)' }}
           >
-            <span>
+            <span className="relative">
               Bag ({itemCount})
+              <span
+                className={`absolute left-0 -bottom-0.5 h-[1.5px] w-full origin-left transition-transform duration-300 ${
+                  isBagActive ? 'scale-x-100' : 'scale-x-0 group-hover:scale-x-100'
+                }`}
+                style={{ backgroundColor: 'var(--nav-text)' }}
+              />
             </span>
           </Link>
 
@@ -128,7 +142,7 @@ export default function Navbar({ theme = 'cream', onThemeToggle }: NavbarProps) 
       </motion.nav>
 
       {/* Optional: Spacer to push content below navbar */}
-      <div className="h-[72px] md:h-[88px]" />
+      <div className="h-18 md:h-22" />
     </>
   );
 }
