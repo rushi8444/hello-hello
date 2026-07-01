@@ -27,8 +27,8 @@ export default function Home() {
         {/* <Hero />
         <ProductGrid />
         <AboutSection /> */}
-        <Navbar theme="dark" />
-        =<Hero/>
+        <Navbar  />
+        <Hero />
         <Footer  />
       </main>
     </>
