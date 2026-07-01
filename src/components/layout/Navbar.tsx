@@ -76,7 +76,7 @@ export default function Navbar({ theme = 'cream', onThemeToggle }: NavbarProps) 
         <div className="flex items-center gap-8 md:gap-12">
           {/* Shop Link */}
           <Link
-            href="/shop"
+            href="/"
             className="relative text-base md:text-base font-medium tracking-wide group"
             style={{ color: 'var(--nav-text)' }}
           >
