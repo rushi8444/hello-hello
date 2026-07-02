@@ -44,6 +44,12 @@ export default function Navbar({ theme = 'cream', onThemeToggle }: NavbarProps) 
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleHomeClick = () => {
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('reset-hero-gallery'));
+    }
+  };
+
   return (
     <>
       {/* Theme CSS Variables injected per theme */}
@@ -64,7 +70,7 @@ export default function Navbar({ theme = 'cream', onThemeToggle }: NavbarProps) 
         transition={{ duration: 0.6, ease: [0.76, 0, 0.24, 1] }}
       >
         {/* Left: ++ Logo */}
-        <Link href="/" className="flex items-center group">
+        <Link href="/" onClick={handleHomeClick} className="flex items-center group">
           <motion.div
             className="flex gap-1"
             whileHover={{ scale: 1.05 }}
@@ -81,6 +87,7 @@ export default function Navbar({ theme = 'cream', onThemeToggle }: NavbarProps) 
           {/* Shop Link */}
           <Link
             href="/"
+            onClick={handleHomeClick}
             aria-current={isShopActive ? 'page' : undefined}
             className="relative text-base md:text-base font-medium tracking-wide group"
             style={{ color: 'var(--nav-text)' }}
