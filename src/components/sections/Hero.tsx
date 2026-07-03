@@ -331,9 +331,9 @@ function ProductCard({
   // 1. EXPANDED STATE (SPLIT-SCREEN WITH MASSIVE TYPOGRAPHY & SELECTORS)
   if (isExpanded) {
     return (
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 w-full text-[#ff0001] bg-[#ede4dd] p-6 md:p-10 lg:p-16 min-h-[85vh] transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)]">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 w-full  p-6 md:p-10 lg:p-16 min-h-[85vh] transition-all duration-700 ease-[cubic-bezier(0.85,0,0.15,1)]">
         {/* Left Side: Product Image */}
-        <div className="col-span-1 lg:col-span-6 flex items-center justify-center bg-[#dcd8d2] relative aspect-square lg:aspect-[4/5] overflow-hidden">
+        <div className="col-span-1 lg:col-span-6 flex items-center justify-center relative aspect-square lg:aspect-[4/5] overflow-hidden">
           <Image
             src={product.src}
             alt={product.title}
@@ -353,7 +353,7 @@ function ProductCard({
                 e.preventDefault();
                 onToggleExpand();
               }}
-              className="group mb-8 flex items-center gap-1.5 tracking-tight text-[#ff0001] font-semibold text-xl cursor-pointer w-fit"
+              className="group mb-8 flex items-center gap-1.5 tracking-tight  font-semibold text-xl cursor-pointer w-fit"
             >
               <svg width="22" height="19" viewBox="0 0 22 19" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2 transition-transform duration-300 group-hover:-translate-x-1.5">
                 <path d="M21.2715 7.95782L4.95769 7.95782L12.8603 0.0551758L9.23741 0.0763642L0 9.31377L9.21622 18.53H12.8603L4.97888 10.6485L21.2927 10.6485L21.2715 7.95782Z" fill="currentColor"></path>
@@ -362,22 +362,22 @@ function ProductCard({
             </button>
 
             {/* Product Title (Massive Red Text) */}
-            <h1 className="text-5xl md:text-6xl lg:text-8xl font-black leading-[0.85] tracking-[-0.03em] mb-4 text-[#ff0001]">
+            <h1 className="text-5xl md:text-6xl lg:text-8xl font-black leading-[0.85] tracking-[-0.03em] mb-4 ">
               {product.title}
             </h1>
 
             {/* Price (Massive Red Text) */}
-            <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 text-[#ff0001]">
+            <div className="text-4xl md:text-5xl lg:text-6xl font-bold mb-8 ">
               {product.price}
             </div>
 
             {/* Product Description */}
-            <p className="text-lg md:text-xl lg:text-2xl leading-normal text-[#ff0001] mb-12 font-medium max-w-[52ch]">
+            <p className="text-lg md:text-xl lg:text-2xl leading-normal  mb-12 font-medium max-w-[52ch]">
               {description}
             </p>
 
             {/* Color Selector */}
-            <dl className="mb-6 flex items-center justify-between gap-8 border-b-2 border-[#ff0001] pb-4 text-[#ff0001]">
+            <dl className="mb-6 flex items-center justify-between gap-8 border-b-2 border-[#ff0001] pb-4 ">
               <dt className="text-2xl tracking-tight font-semibold">Color</dt>
               <dd className="flex gap-6">
                 {['Black', 'Red'].map((color) => {
@@ -403,7 +403,7 @@ function ProductCard({
             </dl>
 
             {/* Size Selector */}
-            <dl className="mb-6 flex items-center justify-between gap-8 border-b-2 border-[#ff0001] pb-4 text-[#ff0001]">
+            <dl className="mb-6 flex items-center justify-between gap-8 border-b-2 border-[#ff0001] pb-4">
               <dt className="text-2xl tracking-tight font-semibold">Size</dt>
               <dd className="flex gap-5 flex-wrap">
                 {['S', 'M', 'L', 'XL', '2XL'].map((size) => {
@@ -429,7 +429,7 @@ function ProductCard({
             </dl>
 
             {/* Quantity Selector */}
-            <dl className="mb-12 flex items-center justify-between gap-8 border-b-2 border-[#ff0001] pb-4 text-[#ff0001]">
+            <dl className="mb-12 flex items-center justify-between gap-8 border-b-2 border-[#ff0001] pb-4 ">
               <dt className="text-2xl tracking-tight font-semibold">Quantity</dt>
               <dd className="flex items-center gap-6 text-2xl">
                 <button
@@ -459,7 +459,7 @@ function ProductCard({
           <div className="pt-4">
             <button
               onClick={handleAddToBag}
-              className="w-full inline-flex items-center justify-between no-underline overflow-hidden relative border-b-2 border-current py-5 bg-transparent group/add pointer-events-auto text-3xl uppercase tracking-wider font-extrabold text-[#ff0001] transition-colors duration-300 cursor-pointer"
+              className="w-full inline-flex items-center justify-between no-underline overflow-hidden relative border-b-2 border-current py-5 bg-transparent group/add pointer-events-auto text-3xl uppercase tracking-wider font-extrabold  transition-colors duration-300 cursor-pointer"
             >
               {/* Sliding Arrow 1 */}
               <span className="transition-transform duration-500 [transition-timing-function:cubic-bezier(0.8,-0.01,0.34,1.01)] absolute left-0 -translate-x-[1.5em] opacity-0 group-hover/add:translate-x-0 group-hover/add:opacity-100">
@@ -502,7 +502,7 @@ function ProductCard({
           e.preventDefault();
           onToggleExpand();
         }}
-        className={`relative ${layout.aspect} w-full overflow-hidden bg-[#dcd8d2] cursor-none rounded-xl`}
+        className={`relative ${layout.aspect} w-full overflow-hidden  cursor-none rounded-xl`}
       >
         {/* Parallax / Zoom Image Wrapper */}
         <motion.div
@@ -523,7 +523,7 @@ function ProductCard({
         <AnimatePresence>
           {isHovered && (
             <motion.div
-              className="pointer-events-none absolute z-10 flex items-center justify-center rounded-full bg-[#ff0001] text-white w-20 h-20 -ml-10 -mt-10"
+              className="pointer-events-none absolute z-10 flex items-center justify-center rounded-full   w-20 h-20 -ml-10 -mt-10"
               style={{
                 left: mousePos.x,
                 top: mousePos.y,
@@ -533,7 +533,7 @@ function ProductCard({
               exit={{ scale: 0, opacity: 0 }}
               transition={{ type: 'spring', stiffness: 350, damping: 25 }}
             >
-              <span className="text-[10px] font-black tracking-widest leading-none text-center">
+              <span className="text-[10px]  tracking-widest leading-none text-center">
                 VIEW MORE
               </span>
             </motion.div>
@@ -542,7 +542,7 @@ function ProductCard({
       </div>
 
       {/* Card Info details */}
-      <div className="mt-3 text-[13px] md:text-[15px] leading-none text-[currentColor]">
+      <div className="mt-3 text-[13px] md:text-[15px] leading-none ">
         <div className="flex items-baseline justify-between gap-4">
           <h2 className="truncate font-medium tracking-[-0.01em]">{product.title}</h2>
           <span className="shrink-0 font-medium">{product.price}</span>
