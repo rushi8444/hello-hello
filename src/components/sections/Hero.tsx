@@ -502,7 +502,7 @@ function ProductCard({
           e.preventDefault();
           onToggleExpand();
         }}
-        className={`relative ${layout.aspect} w-full overflow-hidden  cursor-none rounded-xl`}
+        className={`relative ${layout.aspect} w-full overflow-hidden   cursor-none rounded-xl`}
       >
         {/* Parallax / Zoom Image Wrapper */}
         <motion.div
@@ -523,7 +523,7 @@ function ProductCard({
         <AnimatePresence>
           {isHovered && (
             <motion.div
-              className="pointer-events-none absolute z-10 flex items-center justify-center rounded-full   w-20 h-20 -ml-10 -mt-10"
+              className="pointer-events-none absolute bg-[var(--nav-bg)] text-[var(--nav-text)] z-10 flex items-center justify-center rounded-full   w-20 h-20 -ml-10 -mt-10"
               style={{
                 left: mousePos.x,
                 top: mousePos.y,
